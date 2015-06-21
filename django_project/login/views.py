@@ -81,4 +81,4 @@ def denied(request):
         'sorry.html',
         {},
         context_instance = RequestContext(request)
-
+    )
