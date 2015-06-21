@@ -8,6 +8,8 @@ from login.models import Registrant
 
 from organizer.models import Attendee
 
+import os
+
 def waiver_page(request, fname, email):
     return render_to_response(
         'waiver.html',
@@ -75,4 +77,8 @@ def login_index(request):
     )
 
 def denied(request):
-    return HttpResponse("""Email Checked""")
+    return render_to_response(
+        'sorry.html',
+        {},
+        context_instance = RequestContext(request)
+
