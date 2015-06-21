@@ -10,19 +10,22 @@
 
   <div class="container">
 
-    <header class="header">
+    <section class="header">
       <h3>Welcome to</h3>
       <h1>Bitcamp</h1>
-    </header>
+    </section>
 
-    <form id="checkinform" class="form-login" action="/" method="post">
-      {% csrf_token %}
-      {{ form }}
-      <p class="small">Input your email from registration.</p>
-      <a href="#" onclick="document.getElementById('checkinform').submit();" class="button-bottom">Check In + Connect</a>
-    </form>
+    <section>
+      <form id="checkinform" class="form-login" action="/" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <p class="small">Input your email from registration.</p>
+        <a href="#" onclick="document.getElementById('checkinform').submit();" class="button-bottom">Check In</a>
+      </form>
+    </section>
+
 
   </div>
-<br><br>
+  <br><br>
 </body>
 </html>
