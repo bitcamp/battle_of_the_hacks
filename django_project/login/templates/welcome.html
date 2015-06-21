@@ -1,9 +1,28 @@
-<html>
-    <body>
-    {{ first_name }}
-    {{ last_name }}
-    {{ email }}
-    {{ school }}
-    {{ image }}
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Blitz</title>
+  <link rel="stylesheet" href="https://dl.dropboxusercontent.com/u/507895/style.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body class="success">
+
+  <div class="container">
+
+    <header class="header">
+      <h3>Hey there!</h3>
+    </header>
+
+    <div class="user">
+      <img class="avatar" src="{{ image }}">
+      <h1>{{ first_name }} {{ last_name }}</h1>
+      <h3>{{ school }}</h3>
+    </div>
+
+    <h2 class="directions">Show this screen at registration.</h2>
+
+  </div>
+
+</body>
 </html>

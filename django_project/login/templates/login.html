@@ -1,10 +1,28 @@
-<html>
-        <body>
-            Login Here
-            <form action="/" method="post">
-                {% csrf_token %}
-                {{ form }}
-	        <input type="submit" value="OK">
-            </form>
-        </body>
-    </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Blitz</title>
+  <link rel="stylesheet" href="https://dl.dropboxusercontent.com/u/507895/style.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body class="home">
+
+  <div class="container">
+
+    <header class="header">
+      <h3>Welcome to</h3>
+      <h1>Bitcamp</h1>
+    </header>
+
+    <form class="form-login" action="/" method="post">
+      {% csrf_token %}
+      {{ form }}
+      <p class="small">Input your email from registration.</p>
+      <input type="submit" class="button-bottom" value="Check In + Connect"\>
+    </form>
+
+  </div>
+
+</body>
+</html>

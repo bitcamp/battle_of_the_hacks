@@ -20,7 +20,6 @@ def login_index(request):
                     {
                         'first_name': att.first_name,
                         'last_name': att.last_name,
-                        'email': att.email,
                         'school': att.school,
                         'image': att.image
                     },
@@ -29,7 +28,7 @@ def login_index(request):
             else:
                 return HttpResponseRedirect('/denied/')
     else:
-        form = EmailFormView()
+        form = EmailFormView(auto_id = False)
     return render_to_response(
         'login.html',
         {
