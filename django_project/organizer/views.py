@@ -52,6 +52,10 @@ def handle_uploaded_file(f):
     os.system("rm fi_up.csv")
 
 def organizer_upload(request):
-    return HttpResponse("upload sucessful")
+    return render_to_response(
+        "success.html",
+        {},
+        context_instance=RequestContext(request),
+    )
 
 

@@ -11,18 +11,12 @@
   <div class="container">
 
     <header class="header">
-      <h3>Upload a CSV with your attendee data.</h3>
+      <h1>You did it!</h3>
     </header>
 
-    <form action="{{ url }}" method="post" enctype="multipart/form-data">
-      {% csrf_token %}
-      {{ form }}
-      <!-- <input class="button-bottom" type="submit" value="Check In + Connect"> -->
-      <input type="submit" class="button-bottom" value="Upload CSV"/>
-    </form>
+    <img class="success-img" src="http://media.giphy.com/media/shZNj2jfVbeb6/giphy.gif">
 
   </div>
-<br><br>
+
 </body>
 </html>
-
