@@ -4,6 +4,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 
 from login.forms import EmailFormView
+from login.models import Registrant
 
 from organizer.models import Attendee
 
@@ -15,6 +16,15 @@ def login_index(request):
             matches = Attendee.objects.filter(email = request.POST['email'])
             if(matches.count() > 0):
                 att = matches[0]
+                if(Registrant.objects.filter(email = att.email).count() == 0):
+                    reg = Registrant(
+                        first_name = att.first_name,
+                        last_name = att.last_name,
+                        email = att.email,
+                        school = att.school,
+                        image = att.image,
+                    )
+                    reg.save()
                 return render_to_response(
                     'welcome.html',
                     {

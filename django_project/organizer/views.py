@@ -7,7 +7,10 @@ from django.template import RequestContext
 from organizer.forms import UploadFileFormView
 from organizer.models import Attendee
 
+from login.models import Registrant
+
 import os
+import csv
 
 # Create your views here.
 def organizer_index(request):
@@ -58,4 +61,21 @@ def organizer_upload(request):
         context_instance=RequestContext(request),
     )
 
+def write_obj(writer, entity):
+    writer.writerow([entity.first_name, entity.last_name, entity.email, entity.school])
 
+def get_checkins(request):
+    response = HttpResponse(content_type='text/csv')    
+    response['Content-Disposition'] = 'attachment; filename="checkins.csv"'
+    writer = csv.writer(response)
+    for checkin in Registrant.objects.all():
+        write_obj(writer, checkin)
+    return response
+
+def get_prereg(request):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="preregs.csv"'
+    writer = csv.writer(response)
+    for prereg in Attendee.objects.all():
+        write_obj(writer, prereg)
+    return response
