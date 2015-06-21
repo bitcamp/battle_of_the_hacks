@@ -38,20 +38,18 @@ def handle_uploaded_file(f):
     with open('fi_up.csv', 'r+') as fi: 
         for line in fi:
             attributes = line.split(',')
-            try:
-                if(count(Attendee.objects.filter(email = attributes[2])) > 0 ):
-                    continue
-                a = Attendee(
-                    first_name = attributes[0],
-                    last_name = attributes[1],
-                    email = attributes[2],
-                    school = attributes[3],
-                    image = attributes[4],
-                )
-                a.save()
-            except:
-                print line
-
+            if (len(attributes) < 5):
+                continue
+            if(Attendee.objects.filter(email = attributes[2]).count() > 0 ):
+                continue
+            a = Attendee(
+                first_name = attributes[0],
+                last_name = attributes[1],
+                email = attributes[2],
+                school = attributes[3],
+                image = attributes[4],
+            )
+            a.save()
     os.system("rm fi_up.csv")
 
 def organizer_upload(request):

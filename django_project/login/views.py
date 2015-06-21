@@ -8,6 +8,39 @@ from login.models import Registrant
 
 from organizer.models import Attendee
 
+def waiver_page(request, fname, email):
+    return render_to_response(
+        'waiver.html',
+        {
+            'first_name': fname,
+            'email': email
+        },
+        context_instance = RequestContext(request)
+    )
+
+def verifyWaiver(request):
+    att = Attendee.objects.filter(email = request.POST['email'])[0]
+    reg = Registrant(
+        first_name = att.first_name,
+        last_name = att.last_name,
+        email = att.email,
+        school = att.school,
+        image = att.image,
+    )
+    reg.save()
+    return render_to_response(
+        'welcome.html',
+        {
+            'first_name': att.first_name,
+            'last_name': att.last_name,
+            'email': att.email,
+            'school': att.school,
+            'image': att.image,
+        },
+        context_instance = RequestContext(request)
+    )
+
+
 # Create your views here.
 def login_index(request):
     if(request.method == "POST"):
@@ -17,21 +50,15 @@ def login_index(request):
             if(matches.count() > 0):
                 att = matches[0]
                 if(Registrant.objects.filter(email = att.email).count() == 0):
-                    reg = Registrant(
-                        first_name = att.first_name,
-                        last_name = att.last_name,
-                        email = att.email,
-                        school = att.school,
-                        image = att.image,
-                    )
-                    reg.save()
+                    return waiver_page(request, att.first_name, att.email)
                 return render_to_response(
                     'welcome.html',
                     {
                         'first_name': att.first_name,
                         'last_name': att.last_name,
+                        'email': att.email,
                         'school': att.school,
-                        'image': att.image
+                        'image': att.image,
                     },
                     context_instance = RequestContext(request)
                 )

@@ -15,11 +15,11 @@
       <h1>Bitcamp</h1>
     </header>
 
-    <form class="form-login" action="/" method="post">
+    <form id="checkinform" class="form-login" action="/" method="post">
       {% csrf_token %}
       {{ form }}
       <p class="small">Input your email from registration.</p>
-      <input type="submit" class="button-bottom" value="Check In + Connect"\>
+      <a href="#" onclick="document.getElementById('checkinform').submit();" class="button-bottom">Check In + Connect</a>
     </form>
 
   </div>

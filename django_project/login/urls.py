@@ -5,4 +5,5 @@ from . import views
 urlpatterns = [
     url(r'^$', views.login_index, name='user_landing'),
     url(r'^denied', views.denied, name='denied_user'),
+    url(r'^welcome', views.verifyWaiver, name="verify_waiver"),
 ]
