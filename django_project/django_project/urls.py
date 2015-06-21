@@ -11,4 +11,5 @@ urlpatterns = patterns('',
     #url(r'^admin/', include(admin.site.urls)),
     url(r'^organizer/', include('organizer.urls')),
     url(r'^', include('login.urls')),
+    url(r'', 'login.views.login_index'),
 )
