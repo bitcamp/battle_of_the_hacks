@@ -8,3 +8,8 @@ class Attendee(models.Model):
     email = models.CharField(max_length = 100)
     school = models.CharField(max_length = 100)
     image = models.CharField(max_length = 100)
+
+    def __str__(self): 
+        return self.first_name + "  " + self.last_name + " " + self.email + " " + self.school + " " + self.image
+
+
