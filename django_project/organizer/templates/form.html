@@ -10,16 +10,18 @@
 
   <div class="container">
 
-    <header class="header">
+    <section class="header">
       <h3>Upload a CSV with your attendee data.</h3>
-    </header>
+    </section>
 
+<section>
     <form action="{{ url }}" method="post" enctype="multipart/form-data">
       {% csrf_token %}
       {{ form }}
       <!-- <input class="button-bottom" type="submit" value="Check In + Connect"> -->
       <input type="submit" class="button-bottom" value="Upload CSV"/>
     </form>
+  </section>
 
   </div>
 <br><br>

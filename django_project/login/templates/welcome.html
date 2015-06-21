@@ -10,21 +10,21 @@
 
   <div class="container">
 
-    <header class="header">
-      <h3>Hey there!</h3>
-    </header>
+    <section class="user">
+      <div class="user-avatar-wrapper">
+        <img class="avatar" src="{{ image }}">
+      </div>
+      <h1 class="user-fullname">{{ first_name }} {{ last_name }}</h1>
+      <h3 class="user-school">{{ school }}</h3>
+    </section>
 
-    <div class="user">
-      <img class="avatar" src="{{ image }}">
-      <h1>{{ first_name }} {{ last_name }}</h1>
-      <h3>{{ school }}</h3>
-    </div>
-
-    <h2 class="directions">Show this screen at registration.</h2>
-
+    <section>
+      <h2 class="directions">Show this screen at registration.</h2>
+    </section>
+    
   </div>
 
-<br><br>
+  <br><br>
 
 </body>
 </html>
