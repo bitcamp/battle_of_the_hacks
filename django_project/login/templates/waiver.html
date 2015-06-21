@@ -29,10 +29,10 @@
     <section>
       <form class="form-login" id="waiver-form" action="/welcome/" method="post">
        {% csrf_token %}
-       <input type="text" name="signature" placeholder="Full Name" spellcheck="false">
+       <input "waiver-signature" type="text" name="signature" placeholder="Full Name" spellcheck="false">
        <p class="small">Provide your e-signature to validate.</p>
        <br>
-       <input type="text" name="email" placeholder="{{ email }}" spellcheck="false" value="{{ email }}"/>
+       <input id="waiver-email" type="text" name="email" placeholder="{{ email }}" spellcheck="false" value="{{ email }}"/>
        <p class="small">Email Address</p>
        <a href="#" onclick="document.getElementById('waiver-form').submit();" class="button-bottom">Sign + Connect</a>
      </form>
